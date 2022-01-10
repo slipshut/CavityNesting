@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#SBATCH -J bird_expression_analysis_10
+#SBATCH -p general
+#SBATCH -o /N/slate/mhibbins/outputs/%j.txt
+#SBATCH -e /N/slate/mhibbins/outputs/%j.err
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=mhibbins@iu.edu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --time=10:00:00
+#SBATCH --mem=16G
+
+module load r/4.1.1
+cd /N/slate/mhibbins/bird_expression/
+
+for i in {10001..10672}
+do
+Rscript bird_expression_analysis.R $i
+done
+
+mv bird_expression_model_gene_* model_results/
