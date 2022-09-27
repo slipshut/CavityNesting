@@ -8,14 +8,19 @@ model_output = []
 protein_ID = []
 gene_name = []
 gene_num = sys.argv[2]
+term = []
+coef = []
+pval = []
 
 with open(sys.argv[1], "r") as results_file:
 
-	model_results = False 
+	append_coef = False
+	append_pval = False 
 
 	for line in results_file:
-
+								
 		splitline = line.replace('"', '').strip().split()
+		#print(splitline)	
 
 		if len(splitline) > 2:
 
@@ -26,23 +31,40 @@ with open(sys.argv[1], "r") as results_file:
 				gene_name.append(splitline[-1])
 
 		
-			if splitline[-1] == 'pMCMC':
-				model_results = True
+		if len(splitline) == 1 and splitline[0] == 'pMCMC':
+			append_pval = True
+			append_coef = False
+		elif len(splitline) > 1 and splitline[0] == 'Location':
+			append_coef = True
+			append_pval = False
+		elif len(splitline) == 1 and splitline[0] == "---":
+			append_coef = False
+			append_pval = False
 
-			if model_results == True:
-				model_output.append(splitline)
+		if append_coef == True and len(splitline) > 1:
+			term.append(splitline[0])
+			coef.append(splitline[1])
+		elif append_pval == True and len(splitline) > 1:
+			if splitline[1] == "<":
+				pval.append(splitline[2])
 			else:
-				continue
+				pval.append(splitline[1])
+		else:
+			continue
+
+
+
+
 
 model_output = model_output[1:-2]
 protein_ID = protein_ID[0]
 gene_name = gene_name[0]
+term = term[2:]
+coef = coef[2:]
 
-for line in model_output:
+for i in range(len(pval)):
 
-	if line[5] == '<1e-04':
-		pval = 0.0001
-	else:
-		pval = line[5]
+	if pval[i] == '1e-04':
+		pval[i] = 0.0001
 
-	print(protein_ID, gene_name, gene_num, line[0], line[1], line[2], line[3], line[4], pval)
+	print(protein_ID, gene_name, gene_num, term[i], coef[i], pval[i])
