@@ -14,7 +14,7 @@ import csv
 
 raw_result_lines = [] 
 
-with open("C:/Users/18126/OneDrive - Indiana University/Projects/bird_expression/results/bird_expression_raw_results.txt", "r") as raw_results:
+with open("C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/bird_expression_agg_model_raw_results.txt", "r") as raw_results:
     for line in raw_results:
         raw_result_lines.append(line.split())
         
@@ -25,7 +25,7 @@ for i in range(len(raw_result_lines)):
     
     pval = raw_result_lines[i][8]
     
-    if pval == "<":
+    if pval == "<1e-04" or pval == "1e-04":
         raw_pvals.append(0.0001)
     else:
         raw_pvals.append(pval)
@@ -42,6 +42,6 @@ for i in range(len(corrected_pvals)):
         total_results.append(corrected_pvals[i])
         results.append(total_results)
         
-with open("C:/Users/18126/OneDrive - Indiana University/Projects/bird_expression/results/bird_expression_models_fdr_results.csv", "w", newline="") as f:
+with open("C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/bird_expression_agg_models_fdr_results.csv", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerows(results)

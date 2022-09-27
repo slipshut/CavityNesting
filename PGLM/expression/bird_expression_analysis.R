@@ -12,11 +12,14 @@ args = commandArgs(trailingOnly=TRUE)
 ### Load datasets ###
 exp <- read.csv("normalizedCounts_Species.csv")
 trees <- ape::read.nexus("10sp_CNtree_1000.nex")
+agg <- read.csv("10sp_Agg_avg.csv")
 
 ### Covariance matrix for consensus tree ###
-consensus_tree <- phytools::consensus.edges(trees, p = 0.5)
-inv.phylo <- inverseA(consensus_tree, nodes = "TIPS", scale = TRUE)
 
+#Consensus tree needs to be read in from newick 
+#to circumvent issue with internal node labels
+consensus_tree <- ape::read.tree("bird_consensus.newick")
+inv.phylo <- inverseA(consensus_tree, nodes = "TIPS", scale = TRUE)
 
 ### Data tidying ###
 
@@ -47,10 +50,25 @@ exp_long <- exp %>%
 				     grepl("YW", species) ~ "open"))		
 
 exp_long <- as.data.frame(exp_long)
-#print(intersect(inv.phylo$node.names, unique(exp_long$species_scientific)))
-#print(unique(exp_long$species_scientific))
+
+### Add attack rate data ###
+
+nrows <- dim(exp_long)[1]
+attrate <- rep(NA, nrows)
+
+for (i in 1:nrows) {
+    species <- (exp_long$species_scientific)[i]
+    sex <- (exp_long$sex)[i]  
+    attrate_index <- which(agg$Species.Scientific == species)
+    sex_index <- which(agg$Sex == sex)
+    index <- intersect(attrate_index, sex_index)
+    attrate[i] = (agg$Attack.Rate)[index]
+}
+
+exp_long <- cbind(exp_long, attrate)
+print(head(exp_long))
 	   				 
-### Function for phylogenetic analysis on a gene ### 
+## Function for phylogenetic analysis on a gene ### 
 
 expression_phylo <- function(exp_df, phylo, gene_index) {
 
@@ -58,7 +76,7 @@ expression_phylo <- function(exp_df, phylo, gene_index) {
   gene <- gene_names[gene_index] #get subset based on slice
   exp_df_subset <- subset(exp_df, GeneName == gene) #subset expression data
 
-  exp_model <- MCMCglmm(log_expression ~ nesting_strat*sex,
+  exp_model <- MCMCglmm(log_expression ~ nesting_strat*sex*attrate,
  			random = ~species_scientific,
 			family = "gaussian",
 			ginverse=list(species_scientific = phylo$Ainv),
@@ -74,9 +92,11 @@ model <- results[[3]]
 model_check <- heidel.diag(model$Sol)
 
 #Save results
+sink(paste("bird_expression_agg_model_gene_", args[1], ".txt", sep = ""))
+print(paste("Protein ID: ", results[[1]]))
+print(paste("Gene name: ", results[[2]]))
 print(model_check)
 print(summary(model))
-print(results[[1]])
-print(results[[2]])
+sink()
 
 

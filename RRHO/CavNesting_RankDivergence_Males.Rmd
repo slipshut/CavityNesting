@@ -1,0 +1,225 @@
+This script does the RRHO analysis on each comparison using the DEG data for males. 
+Writes heatmaps, Venn diagrams, and shared gene lists.
+
+---
+title: "RankDivergence"
+author: "Mark Hibbins (adopted from Rebecca L. Young)"
+date: "8/4/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+remove(list=ls())
+```
+
+
+```{r libraries}
+#BiocManager::install("RRHO")
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(RRHO)
+library(viridis)
+```
+
+load cavity nesting differential expression outputs
+
+```{r data}
+  
+ #Sparrow comparison
+ sparrow_results <- read.csv(
+   "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/datasets/RRHO/CN_Males_DEGs_Sparrows.csv", header = TRUE)
+ sparrow_results<-cbind.data.frame(sparrow_results, 
+                                        SparrowRank = rank(sparrow_results$ET_M_vs_HS_M_log2FoldChange), 
+                                        sign=ifelse(sparrow_results$ET_M_vs_HS_M_log2FoldChange < 0, -1, 1))
+ sparrow_results <- na.omit(sparrow_results)
+   sparrow_results<-sparrow_results%>%
+     dplyr::mutate(sparrowRRHO = ET_M_vs_HS_M_padj*sign) %>%
+   dplyr::rename(sparrowFC=ET_M_vs_HS_M_log2FoldChange, 
+                 SparrowNonadjP = ET_M_vs_HS_M_padj) 
+
+   #Swallow comparison
+ swallow_results <- read.csv(
+   "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/datasets/RRHO/CN_Males_DEGs_Swallows.csv", header = TRUE)
+ swallow_results<-cbind.data.frame(swallow_results, 
+                                        SwallowRank = rank(swallow_results$TS_M_vs_BS_M_log2FoldChange), 
+                                        sign=ifelse(swallow_results$TS_M_vs_BS_M_log2FoldChange < 0, -1, 1))
+ swallow_results <- na.omit(swallow_results)
+   swallow_results<-swallow_results%>%
+     dplyr::mutate(swallowRRHO = TS_M_vs_BS_M_padj*sign) %>%
+   dplyr::rename(swallowFC=TS_M_vs_BS_M_log2FoldChange, 
+                 swallowNonadjP = TS_M_vs_BS_M_padj) 
+
+  #Thrush comparison
+    thrush_results <- read.csv(
+   "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/datasets/RRHO/CN_Males_DEGs_Thrushes.csv", header = TRUE)
+ thrush_results<-cbind.data.frame(thrush_results, 
+                                        ThrushRank = rank(thrush_results$BB_M_vs_RO_M_log2FoldChange), 
+                                        sign=ifelse(thrush_results$BB_M_vs_RO_M_log2FoldChange < 0, -1, 1))
+ thrush_results <- na.omit(thrush_results)
+   thrush_results<-thrush_results%>%
+     dplyr::mutate(thrushRRHO = BB_M_vs_RO_M_padj*sign) %>%
+   dplyr::rename(thrushFC=BB_M_vs_RO_M_log2FoldChange, 
+                 thrushNonadjP = BB_M_vs_RO_M_padj) 
+   
+  #Warbler comparison
+   warbler_results <- read.csv(
+   "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/datasets/RRHO/CN_Males_DEGs_Warblers.csv", header = TRUE)
+ warbler_results<-cbind.data.frame(warbler_results, 
+                                        WarblerRank = rank(warbler_results$PW_M_vs_YW_M_log2FoldChange), 
+                                        sign=ifelse(warbler_results$PW_M_vs_YW_M_log2FoldChange < 0, -1, 1))
+ warbler_results <- na.omit(warbler_results)
+   warbler_results<-warbler_results%>%
+     dplyr::mutate(warblerRRHO = PW_M_vs_YW_M_padj*sign) %>%
+   dplyr::rename(warblerFC=PW_M_vs_YW_M_log2FoldChange, 
+                 warblerNonadjP = PW_M_vs_YW_M_padj) 
+   
+  #Wren comparison
+    wren_results <- read.csv(
+   "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/datasets/RRHO/CN_Males_DEGs_Wrens.csv", header = TRUE)
+ wren_results<-cbind.data.frame(wren_results, 
+                                        WrenRank = rank(wren_results$HW_M_vs_CW_M_log2FoldChange), 
+                                        sign=ifelse(wren_results$HW_M_vs_CW_M_log2FoldChange < 0, -1, 1))
+ wren_results <- na.omit(wren_results)
+   wren_results<-wren_results%>%
+     dplyr::mutate(wrenRRHO = HW_M_vs_CW_M_padj*sign) %>%
+   dplyr::rename(wrenFC=HW_M_vs_CW_M_log2FoldChange, 
+                 wrenNonadjP = HW_M_vs_CW_M_padj) 
+
+   
+```
+
+```{r RRHO}
+x = sparrow_results %>%
+  dplyr::select(GeneName, sparrowRRHO)
+y = swallow_results %>%
+  dplyr::select(GeneName, swallowRRHO)
+sparrow_swallow<-RRHO( x, y,  
+      labels = c("Sparrows (ET vs. SH)",
+                 "Swallows (TS vs. BS)"),  
+      alternative = 'enrichment', 
+      plots = TRUE,  outputdir = "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/RRHO/male_only", 
+      BY = TRUE, 
+      log10.ind=FALSE)
+
+x = sparrow_results %>%
+  dplyr::select(GeneName, sparrowRRHO)
+y = thrush_results %>%
+  dplyr::select(GeneName, thrushRRHO)
+sparrow_thrush<-RRHO( x, y,  
+      labels = c("Sparrows (ET vs. SH)",
+                 "Thrushes (BB vs. RO)"),  
+      alternative = 'enrichment', 
+      plots = TRUE,  outputdir = "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/RRHO/male_only", 
+      BY = TRUE, 
+      log10.ind=FALSE)
+
+x = sparrow_results %>%
+  dplyr::select(GeneName, sparrowRRHO)
+y = warbler_results %>%
+  dplyr::select(GeneName, warblerRRHO)
+sparrow_warbler<-RRHO( x, y,  
+      labels = c("Sparrows (ET vs. SH)",
+                 "Warblers (PW vs. YW)"),  
+      alternative = 'enrichment', 
+      plots = TRUE,  outputdir = "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/RRHO/male_only", 
+      BY = TRUE, 
+      log10.ind=FALSE)
+
+x = sparrow_results %>%
+  dplyr::select(GeneName, sparrowRRHO)
+y = wren_results %>%
+  dplyr::select(GeneName, wrenRRHO)
+sparrow_wren<-RRHO( x, y,  
+      labels = c("Sparrows (ET vs. SH)",
+                 "Wrens (HW vs. CW)"),  
+      alternative = 'enrichment', 
+      plots = TRUE,  outputdir = "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/RRHO/male_only", 
+      BY = TRUE, 
+      log10.ind=FALSE)
+
+x = swallow_results %>%
+  dplyr::select(GeneName, swallowRRHO)
+y = thrush_results %>%
+  dplyr::select(GeneName, thrushRRHO)
+swallow_thrush<-RRHO( x, y,  
+      labels = c("Swallows (TS vs. BS)",
+                 "Thrushes (BB vs. RO)"),  
+      alternative = 'enrichment', 
+      plots = TRUE,  outputdir = "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/RRHO/male_only", 
+      BY = TRUE, 
+      log10.ind=FALSE)
+
+x = swallow_results %>%
+  dplyr::select(GeneName, swallowRRHO)
+y = warbler_results %>%
+  dplyr::select(GeneName, warblerRRHO)
+swallow_warbler<-RRHO( x, y,  
+      labels = c("Swallows (TS vs. BS)",
+                 "Warbler (PW vs. YW)"),  
+      alternative = 'enrichment', 
+      plots = TRUE,  outputdir = "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/RRHO/male_only", 
+      BY = TRUE, 
+      log10.ind=FALSE)
+
+x = swallow_results %>%
+  dplyr::select(GeneName, swallowRRHO)
+y = wren_results %>%
+  dplyr::select(GeneName, wrenRRHO)
+swallow_wren<-RRHO( x, y,  
+      labels = c("Swallows (TS vs. BS)",
+                 "Wrens (HW vs. CW)"),  
+      alternative = 'enrichment', 
+      plots = TRUE,  outputdir = "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/RRHO/male_only", 
+      BY = TRUE, 
+      log10.ind=FALSE)
+
+x = thrush_results %>%
+  dplyr::select(GeneName, thrushRRHO)
+y = warbler_results %>%
+  dplyr::select(GeneName, warblerRRHO)
+thrush_warbler<-RRHO( x, y,  
+      labels = c("Thrushes (BB vs. RO)",
+                 "Warblers (PW vs. YW)"),  
+      alternative = 'enrichment', 
+      plots = TRUE,  outputdir = "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/RRHO/male_only", 
+      BY = TRUE, 
+      log10.ind=FALSE)
+
+x = thrush_results %>%
+  dplyr::select(GeneName, thrushRRHO)
+y = wren_results %>%
+  dplyr::select(GeneName, wrenRRHO)
+thrush_wren<-RRHO( x, y,  
+      labels = c("Thrushes (BB vs. RO)",
+                 "Wrens (HW vs. CW)"),  
+      alternative = 'enrichment', 
+      plots = TRUE,  outputdir = "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/RRHO/male_only", 
+      BY = TRUE, 
+      log10.ind=FALSE)
+
+x = warbler_results %>%
+  dplyr::select(GeneName, warblerRRHO)
+y = wren_results %>%
+  dplyr::select(GeneName, wrenRRHO)
+warbler_wren<-RRHO( x, y,  
+      labels = c("Warblers (PW vs. YW)",
+                 "Wrens (HW vs. CW)"),  
+      alternative = 'enrichment', 
+      plots = TRUE,  outputdir = "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/RRHO/male_only", 
+      BY = TRUE, 
+      log10.ind=FALSE)
+
+sparrow_swallow_pval <- pvalRRHO(sparrow_swallow, 100)
+sparrow_thrush_pval <- pvalRRHO(sparrow_thrush, 100)
+sparrow_warbler_pval <- pvalRRHO(sparrow_warbler, 100)
+sparrow_wren_pval <- pvalRRHO(sparrow_wren, 100)
+swallow_thrush_pval <- pvalRRHO(swallow_thrush, 100)
+swallow_warbler_pval <- pvalRRHO(swallow_warbler, 100)
+swallow_wren_pval <- pvalRRHO(swallow_wren, 100)
+thrush_warbler_pval <- pvalRRHO(thrush_warbler, 100)
+thrush_wren_pval <- pvalRRHO(thrush_wren, 100)
+warbler_wren_pval <- pvalRRHO(warbler_wren, 100)
+```

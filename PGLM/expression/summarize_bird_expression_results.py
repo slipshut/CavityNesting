@@ -16,9 +16,15 @@ summary_dict = {"nesting_stratob_cavity": [0, 0],
                 "nesting_stratob_cavity:sexM": [0,0],
                 "nesting_stratopen": [0, 0],
                 "nesting_stratopen:sexM": [0, 0],
-                "sexM": [0,0]}
+                "sexM": [0,0],
+                "attrate": [0,0],
+                "nesting_stratob_cavity:attrate":[0,0],
+                "nesting_stratob_cavity:sexM:attrate":[0,0],
+                "nesting_stratopen:attrate":[0,0],
+                "nesting_stratopen:sexM:attrate":[0,0],
+                "sexM:attrate":[0,0]}
 
-with open("C:/Users/18126/OneDrive - Indiana University/Projects/bird_expression/results/bird_expression_models_fdr_results.csv", "r") as model_results:
+with open("C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/bird_expression_agg_models_fdr_results.csv", "r") as model_results:
     for line in model_results:
        result_lines.append(line.split(","))
       
