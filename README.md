@@ -68,3 +68,12 @@ in two-strategy PGLMs, including the sign of the inferred coefficient.
 in three-strategy PGLMs, including the sign of the inferred coefficient. 
 
 ## RRHO 
+
+**CavNesting_RankDivergence.Rmd** - Conducts RRHO analysis for both sexes combined. 
+
+**CavNesting_RankDivergence_Females.Rmd** - Conducts RRHO analysis for female expression. 
+
+**CavNesting_RankDivergence_Males.Rmd** - Conducts RRHO analysis for male expression. 
+
+**count_RRHO_shared.R** - Counts highly concordantly expressed genes shared across multiple
+RRHO family comparisons. 
