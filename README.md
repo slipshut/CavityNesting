@@ -1,4 +1,4 @@
-# CavityNesting_GeneExpression
+# CavityNesting_Analysis
 
 Analysis scripts for Lipshutz, Hibbins, et al. 2023. A brief description of the purpose 
 of each script is outlined here. 
