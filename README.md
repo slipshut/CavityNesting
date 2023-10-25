@@ -3,7 +3,8 @@
 Analysis scripts for Lipshutz, Hibbins, et al. 2023. A brief description of the purpose 
 of each script is outlined here. 
 
-## Behavior and Testosterone
+## Behavior_Testosterone
+
 **CN_behavior_analyses.R** - Examines and visuzalizes attack rate and distance from mount by 
 nest strategy and sex, from simulated territorial intrusions.
 
