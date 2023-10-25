@@ -102,3 +102,8 @@ for gene expression using data from females only.
 with behavioral assays followed by immediate collection, includes latency analysis.
 
 **WGCNA_latency.csv** - Input file for WGCNA latency analysis, including module eigengenes.
+
+## DEGs
+
+**DEGs_vs_Divergence.R** - Visualizes and correlates number of differentially expressed genes between 
+species pairs by degree of evolutionary divergence, for each of five families
