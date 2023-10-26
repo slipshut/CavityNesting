@@ -34,6 +34,11 @@ agg <- agg[c("Species.Scientific", "Nest.Type.Specific",
 
 agg$Species.Scientific <- as.factor(agg$Species.Scientific)
 
+# If running 2-level model (Obligate vs. Non-Obligate) instead of 3-level model (Obligate vs. Facultative vs. Open):
+#agg$Nest.Type.Combined <- ifelse(agg$Nest.Type.Specific == "Obligate.Cavity",
+#                                                           "Obligate.Cavity",
+#                                                           "Non_Ob")
+
 agg["No.Contact"] <- 60 - agg["Physical.Contact"]
 
 
