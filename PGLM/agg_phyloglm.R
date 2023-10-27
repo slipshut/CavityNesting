@@ -15,14 +15,17 @@ agg <- read.csv(
 tes <- read.csv(
   "C:/Users/18126/OneDrive - Indiana University/Projects/bird_expression/datasets/10sp_logT.csv")
 
-trees <- ape::read.nexus(
+bird_trees <- ape::read.nexus(
   "C:/Users/18126/OneDrive - Indiana University/Projects/bird_expression/datasets/10sp_CNtree_1000.nex"
 )
 
 ### Get majority-rules consensus tree ### 
 
-consensus_tree <- phytools::consensus.edges(trees, p = 0.5)
-plotTree(consensus_tree, fsize = 1) #Plot the tree
+consensus_tree <- ape::consensus(bird_trees, p = 0.5, rooted = TRUE)
+consensus_tree <- phytools::consensus.edges(bird_trees, consensus.tree = consensus_tree)
+consensus_tree$node.label <- NULL
+
+plotTree(consensus_tree) #Plot the tree
 
 ### Zero-inflated binomial GLMM for attack rate ### 
 
