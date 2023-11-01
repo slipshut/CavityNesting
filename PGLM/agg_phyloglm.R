@@ -1,16 +1,16 @@
-remove(list=ls())
+iteremove(list=ls())
 library(ape)
 library(tidyverse)
 library(phytools)
 library(MCMCglmm)
 
 ### This script does PGLM analysis for aggression, testosterone ###
-### and distance datasets. Written by Mark Hibbins ### 
+### and distance datasets. Written by Mark Hibbins, edited by Sara Lipshutz ### 
 
 ### Load datasets ### 
 
 agg <- read.csv(
-  "C:/Users/18126/OneDrive - Indiana University/Projects/bird_expression/datasets/10sp_Agg.csv")
+  "10sp_Agg_MountSex.csv")
 
 tes <- read.csv(
   "C:/Users/18126/OneDrive - Indiana University/Projects/bird_expression/datasets/10sp_logT.csv")
