@@ -13,11 +13,10 @@ agg <- read.csv(
   "10sp_Agg_MountSex.csv")
 
 tes <- read.csv(
-  "C:/Users/18126/OneDrive - Indiana University/Projects/bird_expression/datasets/10sp_logT.csv")
+  "10sp_logT.csv")
 
 bird_trees <- ape::read.nexus(
-  "C:/Users/18126/OneDrive - Indiana University/Projects/bird_expression/datasets/10sp_CNtree_1000.nex"
-)
+  "10sp_CNtree_1000.nex")
 
 ### Get majority-rules consensus tree ### 
 
