@@ -1,6 +1,3 @@
-This script does the RRHO analysis on each comparison using the DEG data for males. 
-Writes heatmaps, Venn diagrams, and shared gene lists.
-
 ---
 title: "RankDivergence"
 author: "Mark Hibbins (adopted from Rebecca L. Young)"
@@ -223,3 +220,118 @@ thrush_warbler_pval <- pvalRRHO(thrush_warbler, 100)
 thrush_wren_pval <- pvalRRHO(thrush_wren, 100)
 warbler_wren_pval <- pvalRRHO(warbler_wren, 100)
 ```
+
+```{r zero}
+
+# I don't know what the rest of these code blocks do
+x<-limma_FacNon_results %>%
+  dplyr::mutate(FacNonRRHOrank = rank(FacNonRRHO)) %>%
+  dplyr::select(X, FacNonRRHOrank)
+
+y<-limma_OblNon_results %>%
+  dplyr::mutate(OblNonRRHOrank = rank(OblNonRRHO)) %>%
+  dplyr::select(X, OblNonRRHOrank)
+
+z<-limma_OblFac_results %>%
+  dplyr::mutate(OblFacRRHOrank = rank(OblFacRRHO)) %>%
+  dplyr::select(X, OblFacRRHOrank)
+
+x<-full_join(x,y)
+ranks<-full_join(x,z)
+
+colnames(ranks) #check order
+
+ranks<-ranks %>% 
+  dplyr::mutate(FacNon = ntile(FacNonRRHOrank, 103), 
+                OblNon = ntile(OblNonRRHOrank, 103), 
+                OblFac = ntile(OblFacRRHOrank, 103))
+
+#look for the zero bin to identify the separation between up and down regulation
+FacNon_bins<-full_join(limma_FacNon_results, 
+                       ranks)
+
+FacNon_bins<- 
+  FacNon_bins %>%
+  dplyr::group_by(FacNon )%>%
+  dplyr::summarise(FacNon_min=min(FacNonFC), 
+                   FacNon_max=max(FacNonFC), 
+                   FacNon_mean=mean(FacNonFC))
+
+OblNon_bins<-full_join(limma_OblNon_results, 
+                       ranks)
+
+OblNon_bins<- 
+  OblNon_bins %>%
+  dplyr::group_by(OblNon )%>%
+  dplyr::summarise(OblNon_min=min(OblNonFC), 
+                   OblNon_max=max(OblNonFC), 
+                   OblNon_mean=mean(OblNonFC))
+
+OblFac_bins<-full_join(limma_OblFac_results, 
+                       ranks)
+
+OblFac_bins<- 
+  OblFac_bins %>%
+  dplyr::group_by(OblFac )%>%
+  dplyr::summarise(OblFac_min=min(OblFacFC), 
+                   OblFac_max=max(OblFacFC), 
+                   OblFac_mean=mean(OblFacFC))
+
+#down- to up-regulation switch point for each lineage
+#I use this sometimes in plotting to indicate the bin at which the data switch from down to up regulation
+FacNon_zero=48.5
+OblNon_zero=53.5
+OblFac_zero=57.5
+```
+
+```{r RRHOplots}
+#pdf("RRHO_enrichmentplots.pdf")
+lattice::levelplot(FacNon_OblNon$hypermat.by,  
+                   col.regions=colorRampPalette(c("#003366",
+                                                  "blue",
+                                                  "green",
+                                                  "yellow", 
+                                                  "red", 
+                                                  "firebrick")),  
+                   xlab="Facultative versus Non-cleaners",
+                   ylab="Obligate versus Non-cleaners")
+                   # panel = function(...){ ###this function plots the levelplot and then adds lines
+                   #   panel.levelplot(...)
+                   #   panel.abline(h = OblNon_zero, lty = "dashed", lwd=2, col="white")
+                   #   panel.abline(v = FacNon_zero, lty = "dashed", lwd=2, col="white")})
+
+
+lattice::levelplot(FacNon_OblFac$hypermat.by,  
+                   col.regions=colorRampPalette(c("#003366",
+                                                  "blue",
+                                                  "green",
+                                                  "yellow", 
+                                                  "red", 
+                                                  "firebrick")), 
+                   xlab="Facultative versus Non-cleaners",
+                   ylab="Obligate versus Facultative Cleaners")
+#dev.off()
+
+```
+
+```{r mergeRanks}
+limmaRanks<-full_join(limma_OblNon_results,
+                      limma_FacNon_results, 
+                      by = 'X')
+                      
+limmaRanks<-full_join(limmaRanks, 
+                      limma_OblFac_results, 
+                      by = 'X')
+
+ggplot(limmaRanks, aes(x=FacNonRank, 
+                       y=OblNonRank))+
+  geom_point() +
+  NULL
+
+ggplot(limmaRanks, aes(x=FacNonRank, 
+                       y=OblFacRank))+
+  geom_point() +
+  NULL
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

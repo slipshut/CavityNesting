@@ -9,9 +9,9 @@ library(readxl)
 # Read in phyloDEG and all-genes datasets
 
 phyloDEG <- read.csv(
-  "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/bird_expression_agg_models_fdr_results.csv")
+  "C:/Users/mhibb/OneDrive - University of Toronto/Projects/bird_expression/results/bird_expression_updated_fdr_results.csv")
 normalizedCounts_Species <- read.csv(
-  "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/datasets/expression/normalizedCounts_Species.csv")
+  "C:/Users/mhibb/OneDrive - University of Toronto/Projects/bird_expression/datasets/expression/normalizedCounts_Species.csv")
 
 # Read in candidate gene datasets using a function I found at 
 # https://www.geeksforgeeks.org/how-to-read-a-xlsx-file-with-multiple-sheets-in-r/
@@ -27,7 +27,7 @@ read_multisheet <- function(fpath) {
 }
 
 cand_df <- read_multisheet(
-  "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/datasets/cand_genes/CandidateAggGeneLists.xlsx")
+  "C:/Users/mhibb/OneDrive - University of Toronto/Projects/bird_expression/datasets/cand_genes/CandidateAggGeneLists.xlsx")
 
 rittschof <- cand_df$`Rittschof Table S4`
 zhangjames <- cand_df$`Zhang-James Table S4 `
@@ -54,7 +54,7 @@ cand_genes <- unique(c(rittschof_genes, filby_genes, zhangjames_genes))
 
 is_nestingstrat_gene <- function(gene) {
   
-  if (grepl("nesting_strat", gene[4])) {
+  if (grepl("^attrate$", gene[4])) {
     return(gene[2])
   } 
   else {
@@ -135,7 +135,7 @@ obs_df <- as.data.frame(cbind(as.numeric(observed), datasets = obs_dataset))
 
 
 enrichment_plot <- ggplot() + 
-  geom_density(data = random_df, aes(x = overlaps), size=1) +
+  geom_density(data = random_df, aes(x = overlaps), linewidth=1) +
   geom_vline(data = obs_df, mapping = aes(xintercept = observed),
              linetype = "dashed", size = 1) + 
   facet_wrap(~datasets, scales = "free") + 
@@ -174,5 +174,8 @@ pooled_pval <- get_enrichment_pval(pooled_obs_overlap,
 
 
 
+genelists <- cbind(filby_genes, rittschof_genes, zhangjames_genes)
 
-
+#write.csv(filby_genes, "filbygenes.csv")
+#write.csv(rittschof_genes, "rittschofgenes.csv")
+#write.csv(zhangjames_genes, "zhangjames_genes.csv")
