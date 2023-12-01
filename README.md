@@ -1,7 +1,22 @@
-# CavityNesting_GeneExpression
+# CavityNesting_Analysis
 
 Analysis scripts for Lipshutz, Hibbins, et al. 2023. A brief description of the purpose 
 of each script is outlined here. 
+
+## Behavior_Testosterone
+
+**CN_behavior_analyses.R** - Examines and visuzalizes attack rate and distance from mount by 
+nest strategy and sex, from simulated territorial intrusions.
+
+**CN_testosterone_analyses.R** - Examines and visuzalizes plasma testosterone levels by 
+nest strategy and sex, from enzyme immunoassay.
+
+**Cavity.Agg.Collect.Allyears.csv** - Input file for behavior and testosterone analyses
+
+## DEGs
+
+**DEGs_vs_Divergence.R** - Visualizes and correlates number of differentially expressed genes between 
+species pairs by degree of evolutionary divergence, for each of five families
 
 ## Enrichment
 **bentz_gene_permutation_aggmodels.R** - Tests for significant overlap between our PhyloDEGs
@@ -77,3 +92,21 @@ in three-strategy PGLMs, including the sign of the inferred coefficient.
 
 **count_RRHO_shared.R** - Counts highly concordantly expressed genes shared across multiple
 RRHO family comparisons. 
+
+## WGCNA
+
+**WGCNA_cavity_Nesting_allind_cytoscape.R** - Runs weighted gene co-expression network analysis
+for gene expression using data from both sexes. Includes output for cytoscape network visualization.
+
+**WGCNA_cavity_Nesting_male.R** - Runs weighted gene co-expression network analysis
+for gene expression using data from males only.
+
+**WGCNA_cavity_nesting_female.R** - Runs weighted gene co-expression network analysis
+for gene expression using data from females only.
+
+**WGCNA_downstream_analyses.R** - Visualizes WGCNA by nest strategy, aggression, and sex. For samples 
+with behavioral assays followed by immediate collection, includes latency analysis.
+
+**WGCNA_latency.csv** - Input file for WGCNA latency analysis, including module eigengenes.
+
+

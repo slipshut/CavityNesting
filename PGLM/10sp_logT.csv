@@ -1,0 +1,197 @@
+﻿Bird.ID,Species,Species.Scientific,Nest.Type.Specific,Nest.Type,Sex,Family,Mass,Testosterone,logTestosterone
+ROF3,American Robin,Turdus_migratorius,Open,Open,F,Turdidae,78.4,0.0577,-1.238824187
+ROF2,American Robin,Turdus_migratorius,Open,Open,F,Turdidae,64.4,0.0584,-1.233587153
+ROF4,American Robin,Turdus_migratorius,Open,Open,F,Turdidae,78.2,0.06525,-1.185419484
+ROF5,American Robin,Turdus_migratorius,Open,Open,F,Turdidae,NA,0.06715,-1.172953983
+ROF1,American Robin,Turdus_migratorius,Open,Open,F,Turdidae,78,0.11885,-0.925000814
+ROF8,American Robin,Turdus_migratorius,Open,Open,F,Turdidae,79.3,0.47255,-0.325552232
+ROF6,American Robin,Turdus_migratorius,Open,Open,F,Turdidae,70.3,0.50395,-0.29761255
+ROM6,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,NA,0.187,-0.728158393
+ROM5,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,66.2,0.2335,-0.631713115
+AMRO M 2,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,NA,1.1284375,0.05247751
+AMRO M 1,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,NA,1.53525,0.186179106
+ROM2,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,74.9,2.17425,0.337309479
+ROM11,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,74.3,2.8055,0.448010273
+ROM9,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,77.1,2.8125,0.449092531
+ROM1,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,75.4,3.2465,0.511415407
+ROM7,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,78.5,3.64475,0.561667745
+ROM8,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,72.6,5.3195,0.725870813
+ROM3,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,71,5.9845,0.777027871
+ROM4,American Robin,Turdus_migratorius,Open,Open,M,Turdidae,77.6,6.8455,0.835405175
+BSF8,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,16.2,0.0828,-1.081969663
+BSF4,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,16.7,0.08465,-1.072373038
+BSF1,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,18.9,0.1079,-0.966978555
+BSF2,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,19.5,0.12555,-0.901183283
+BSF3,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,16.4,0.1263,-0.898596649
+BSF6,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,20.6,0.16795,-0.774819992
+BSF7,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,16.6,0.1763,-0.753747688
+BSF11,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,17.25,0.3244,-0.488919154
+BSF5,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,19.7,0.39,-0.408935393
+BSF10,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,17.5,0.45640625,-0.340648417
+BSF9,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,15.25,0.5064375,-0.295474144
+BSF12,Barn Swallow,Hirundo_rustica,Open,Open,F,Hirundinidae,18,0.53035,-0.275437427
+BSM1,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,18.6,0.48,-0.318758763
+BSM14,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,17.25,0.635,-0.197226275
+BSM2,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,16.4,0.721,-0.142064735
+BSM15,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,16.75,1.034,0.014520539
+BSM5,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,18.8,1.2435,0.09464579
+BSM4,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,19.5,1.31875,0.120162473
+BSM11,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,18.75,1.443333333,0.159366642
+BSM12,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,20.5,1.74625,0.242106419
+BSM13,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,16.5,2.0655,0.315025199
+BSM9,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,18.5,3.2965,0.51805308
+BSM7,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,17.4,3.5615,0.551632949
+BSM10,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,20,3.8055,0.580411726
+BSM8,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,19.5,5.0475,0.703076328
+BSM6,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,18.3,5.7825,0.762115641
+BSM3,Barn Swallow,Hirundo_rustica,Open,Open,M,Hirundinidae,17.1,11.8195,1.072599105
+CWF7,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,F,Troglodytidae,NA,0.22825,-0.641589214
+CWF6,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,F,Troglodytidae,16.7,0.24765,-0.606161668
+CWF2,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,F,Troglodytidae,18.8,0.2586,-0.587371479
+CWF3,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,F,Troglodytidae,22.5,0.3088,-0.510322708
+CWF8,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,F,Troglodytidae,17.6,0.4915,-0.308476478
+CWF1,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,F,Troglodytidae,21.8,0.595603448,-0.225042797
+CWM2,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,M,Troglodytidae,22.9,1.05975,0.025203425
+CWM5,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,M,Troglodytidae,20.9,1.629,0.211921084
+CWM6,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,M,Troglodytidae,NA,2.458,0.390581879
+CWM7,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,M,Troglodytidae,22.3,2.879875,0.459373638
+CWM1,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,M,Troglodytidae,21.3,3.1755,0.501812117
+CWM4,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,M,Troglodytidae,20.9,3.205,0.505828034
+CWM8,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,M,Troglodytidae,21.8,4.9925,0.698318074
+CWM3,Carolina Wren,Thryothorus_ludovicianus,Facultative_Cavity,zCavity,M,Troglodytidae,20.2,6.024,0.779884963
+BBF15,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,31.6,0.04435,-1.353106376
+BBF16,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,30.1,0.0473,-1.325138859
+BBF11,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,30.8,0.0593,-1.226945307
+BBF3,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,27.7,0.0873,-1.058985756
+BBF1,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,29.1,0.12315,-0.909565584
+BBF14,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,30,0.13235,-0.878276054
+BBF10,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,NA,0.1364,-0.86518563
+BBF7,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,NA,0.1996,-0.699839463
+BBF8,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,NA,0.21985,-0.65787353
+BBF6,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,NA,0.25655,-0.590827981
+BBF4,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,28.4,0.2863,-0.543178652
+BBF5,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,29.1,0.2927,-0.533577278
+BBF9,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,28,0.3092,-0.509760515
+BBF12,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,28.9,0.4245,-0.372122305
+BBF2,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,F,Turdidae,29.5,0.72955,-0.136944938
+BBM10,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,29.1,0.21625,-0.665043884
+BBM8,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,30.1,0.67075,-0.173439319
+BBM4,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,31,0.82075,-0.085789109
+BBM15,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,29.4,1.14725,0.059658066
+1521-01439,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,,1.638,0.214313897
+BBM1,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,29,1.75225,0.243596069
+BBM7,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,27.5,1.937,0.287129621
+BBM14,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,27.1,2.3495,0.370975449
+BBM5,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,NA,3.14075,0.497033368
+BBM11,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,29.2,3.1955,0.504538822
+BBM2,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,28,3.2735,0.515012345
+BBM6,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,28.1,3.93275,0.59469634
+BBM12,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,28.8,5.409,0.733116981
+BBM9,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,29.4,6.236,0.794906107
+BBM3,Eastern Bluebird,Sialia_sialis,Obligate_Cavity,zCavity,M,Turdidae,28.2,6.6675,0.823963024
+ETF1,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,F,Passeridae,20.4,0.1084,-0.964970718
+ETF3,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,F,Passeridae,19.4,0.11005,-0.958409953
+ETF5,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,F,Passeridae,20.3,0.179840426,-0.745112678
+ETF7,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,F,Passeridae,20.6,0.24565,-0.609683232
+ETF4,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,F,Passeridae,20.4,0.327049302,-0.485386773
+ETF2,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,F,Passeridae,20.3,0.551750398,-0.258257345
+ETF6,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,F,Passeridae,19.6,0.657284429,-0.182246656
+ETM3,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,M,Passeridae,21.3,1.420125,0.152326573
+ETM7,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,M,Passeridae,22.1,3.6865,0.566614238
+ETM6,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,M,Passeridae,20.1,4.080008211,0.610661037
+ETM4,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,M,Passeridae,19.8,4.17875,0.62104639
+ETM5,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,M,Passeridae,20.5,5.93875,0.773695043
+ETM8,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,M,Passeridae,19.4,6.4555,0.809929885
+ETM2,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,M,Passeridae,22,8.792,0.944087679
+ETM1,Eurasian Tree Sparrow,Passer_montanus,Obligate_Cavity,zCavity,M,Passeridae,21.1,8.892375,0.949017769
+HSF8,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,F,Passeridae,29,0.17705,-0.751904069
+HSF7,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,F,Passeridae,26.7,0.19165,-0.717491176
+HSF5,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,F,Passeridae,25.8,0.197725,-0.703938416
+HSF3,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,F,Passeridae,20.4,0.204222222,-0.689897002
+HSF2,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,F,Passeridae,28.5,0.256588044,-0.590763584
+HSF4,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,F,Passeridae,27.6,0.405202462,-0.392327925
+HSF9,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,F,Passeridae,30.1,0.40721154,-0.390179923
+HSF1,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,F,Passeridae,25.6,0.1661,-0.779630368
+HSM2,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,M,Passeridae,28.9,1.251625,0.097474229
+HSM3,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,M,Passeridae,26.8,3.685941785,0.566548472
+HSM7,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,M,Passeridae,26,4.688,0.670987603
+HSM5,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,M,Passeridae,27.5,5.7285,0.758040917
+HSM8,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,M,Passeridae,NA,5.9309375,0.773123347
+HSM9,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,M,Passeridae,28,6.022,0.779740751
+HSM11,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,M,Passeridae,27.9,6.4595,0.810198903
+HSM10,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,M,Passeridae,30.2,8.312,0.919705535
+HSM4,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,M,Passeridae,27,9.125125,0.960238822
+HSM6,House Sparrow,Passer_domesticus,Facultative_Cavity,zCavity,M,Passeridae,26.1,12.5058125,1.097111913
+HWF1,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,F,Troglodytidae,9.6,0.11425,-0.942143791
+HWF2,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,F,Troglodytidae,11.1,0.1254,-0.901702464
+HWF5,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,F,Troglodytidae,11.9,0.1322,-0.878768545
+HWF4,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,F,Troglodytidae,12.2,0.1438,-0.842241114
+HWF3,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,F,Troglodytidae,NA,0.14955,-0.825213583
+HWF7,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,F,Troglodytidae,NA,0.3635,-0.439495585
+HWM5,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,10.6,0.34975,-0.456242277
+HWM2,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,10,0.426,-0.370590401
+HWM1,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,10.6,0.56025,-0.251618135
+HWM4,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,10.9,1.14575,0.059089866
+HWM9,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,10.7,1.22025,0.086448816
+HWM3,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,10.4,1.58475,0.19996076
+HWM8,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,10.5,2.2105,0.344490519
+HWM7,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,10.6,2.745,0.438542349
+HWM6,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,10.7,2.8065,0.448165047
+HWM10,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,11.8,3.305357143,0.519218392
+HWM12,House Wren,Troglodytes_aedon,Obligate_Cavity,zCavity,M,Troglodytidae,11,4.34825,0.638314506
+PWF5,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,F,Parulidae,15.5,0.1901,-0.721017883
+PWF7,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,F,Parulidae,12.8,0.2019,-0.694863681
+PWF8,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,F,Parulidae,15.3,0.382499873,-0.417368705
+PWF4,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,F,Parulidae,14,0.410512169,-0.386673964
+PWF3,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,F,Parulidae,12.6,0.423858192,-0.372779419
+PWF9,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,F,Parulidae,16,0.5833,-0.234108024
+PWF6,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,F,Parulidae,14,0.632859773,-0.198692509
+PWF2,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,F,Parulidae,15,0.688023333,-0.162396834
+PWF1,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,F,Parulidae,14.5,1.1325,0.054038211
+PWM7,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,M,Parulidae,13.9,1.97375,0.295292143
+PWM8,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,M,Parulidae,13.3,4.711,0.673113104
+PWM9,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,M,Parulidae,13.8,4.88225,0.688620014
+PWM1,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,M,Parulidae,14.4,5.0545,0.703678201
+PWM3,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,M,Parulidae,14.6,6.02875,0.780227275
+PWM4,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,M,Parulidae,13.6,6.8005,0.832540845
+PWM6,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,M,Parulidae,14,7.5585,0.878435617
+PWM2,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,M,Parulidae,14.1,10.634,1.026696656
+PWM5,Prothonotary Warbler,Protonotaria_citrea,Obligate_Cavity,zCavity,M,Parulidae,13.2,12.734875,1.104994686
+TSF5,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,19.2,0.04835,-1.315603522
+TSF12,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,20.6,0.06895,-1.161465729
+TSF6,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,21.5,0.10855,-0.964370172
+TSF13,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,19,0.1179,-0.928486195
+TSF9,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,20.3,0.14085,-0.851243149
+TSF10,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,18.6,0.19445,-0.711192053
+TSF7,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,22.9,0.20245,-0.693682219
+TSF3,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,20.7,0.2061,-0.685922008
+TSF14,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,20.4,0.21405,-0.669484768
+TSF11,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,19.1,0.23725,-0.624793779
+TSF4,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,20.6,0.2578,-0.588717087
+TSF1,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,19.2,0.30325,-0.51819919
+TSF2,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,18.4,1.093625,0.03886843
+TSF8,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,F,Hirundinidae,19.5,1.246,0.095518042
+TSM1,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,M,Hirundinidae,20.8,0.7165,-0.144783805
+TSM7,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,M,Hirundinidae,19.1,1.15825,0.063802309
+TSM2,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,M,Hirundinidae,18.7,1.74425,0.241608732
+TSM6,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,M,Hirundinidae,20.8,2.18675,0.339799135
+TSM5,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,M,Hirundinidae,19.5,2.69125,0.429954043
+TSM3,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,M,Hirundinidae,21.9,4.8705,0.687573548
+TSM1PA,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,M,Hirundinidae,NA,5.221,0.717753693
+TSM4,Tree Swallow,Tachycineta_bicolor,Obligate_Cavity,zCavity,M,Hirundinidae,21.8,9.5575,0.980344307
+YWF8,Yellow Warbler,Dendroica_petechia,Open,Open,F,Parulidae,8.9,0.092826087,-1.032329957
+YWF1,Yellow Warbler,Dendroica_petechia,Open,Open,F,Parulidae,9.5,0.1355,-0.868060705
+YWF3,Yellow Warbler,Dendroica_petechia,Open,Open,F,Parulidae,10.7,0.21855,-0.660449189
+YWF9,Yellow Warbler,Dendroica_petechia,Open,Open,F,Parulidae,10.5,0.281615424,-0.550343563
+YWF2,Yellow Warbler,Dendroica_petechia,Open,Open,F,Parulidae,10.2,0.310029536,-0.50859693
+YWF6,Yellow Warbler,Dendroica_petechia,Open,Open,F,Parulidae,8.9,0.395973,-0.402334426
+YWF5,Yellow Warbler,Dendroica_petechia,Open,Open,F,Parulidae,8.6,0.4362,-0.360314339
+YWF4,Yellow Warbler,Dendroica_petechia,Open,Open,F,Parulidae,8.8,0.4931,-0.307064997
+YWM5,Yellow Warbler,Dendroica_petechia,Open,Open,M,Parulidae,9.6,1.13375,0.0545173
+YWM1,Yellow Warbler,Dendroica_petechia,Open,Open,M,Parulidae,10.7,1.805375,0.256567424
+YWM8,Yellow Warbler,Dendroica_petechia,Open,Open,M,Parulidae,9.7,3.3285,0.522248561
+YWM4,Yellow Warbler,Dendroica_petechia,Open,Open,M,Parulidae,8.8,3.867619897,0.587443786
+YWM7,Yellow Warbler,Dendroica_petechia,Open,Open,M,Parulidae,9.2,3.8725,0.587991426
+YWM2,Yellow Warbler,Dendroica_petechia,Open,Open,M,Parulidae,8.7,3.938655178,0.595347961
+YWM6,Yellow Warbler,Dendroica_petechia,Open,Open,M,Parulidae,10.1,6.825,0.834102656
+YWM3,Yellow Warbler,Dendroica_petechia,Open,Open,M,Parulidae,9.6,6.900375,0.838872693
