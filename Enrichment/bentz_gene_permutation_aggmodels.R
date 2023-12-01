@@ -8,14 +8,14 @@ library(tidyverse)
 # Read in phyloDEG and all-genes datasets
 
 phyloDEG <- read.csv(
-  "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/bird_expression_agg_models_fdr_results.csv")
+  "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/results/bird_expression_2levels_fdr_results.csv")
 normalizedCounts_Species <- read.csv(
   "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/datasets/expression/normalizedCounts_Species.csv")
 
 # Read in and clean candidate gene dataset
 
 Bentz_TRES_genes <- read.csv(
-  "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/datasets/cand_genes/Bentz_TRES_genes.csv", header=FALSE)
+  "C:/Users/18126/OneDrive - University of Toronto/Projects/bird_expression/datasets/cand_genes/Bentz_TRES_genes_updated2.csv", header=FALSE)
 
 Bentz_TRES_genes[1,1] = "Symbol"
 colnames(Bentz_TRES_genes) <- Bentz_TRES_genes[1,]
@@ -29,8 +29,8 @@ HYPO_Day2_DEG_set <- unique(subset(Bentz_TRES_genes$Symbol,
                                    Bentz_TRES_genes$Set == "HYPO_Day2_DEG"))
 VMT_WGCNA_Blue_set <- unique(subset(Bentz_TRES_genes$Symbol,
                                    Bentz_TRES_genes$Set == "VMT_WGCNA_Blue"))
-VMT_WGCNA_Brown_set <- unique(subset(Bentz_TRES_genes$Symbol,
-                                    Bentz_TRES_genes$Set == "VMT_WGCNA_Brown"))
+HYPO_WGCNA_Brown_set <- unique(subset(Bentz_TRES_genes$Symbol,
+                                    Bentz_TRES_genes$Set == "HYPO_WGCNA_Brown"))
 HYPO_WGCNA_Green_set <- unique(subset(Bentz_TRES_genes$Symbol,
                                     Bentz_TRES_genes$Set == "HYPO_WGCNA_Green"))
 VMT_Day0_DEG_set <- unique(subset(Bentz_TRES_genes$Symbol,
@@ -43,7 +43,7 @@ pooled_set <- unique(Bentz_TRES_genes$Symbol)
 
 is_nestingstrat_gene <- function(gene) {
   
-  if (grepl("nesting_strat", gene[4])) {
+  if (grepl("^attrate$", gene[4])) {
     return(gene[2])
   } 
   else {
@@ -106,10 +106,10 @@ VMT_WGCNA_Blue_random_overlaps <- replicate(10000,
                                    random_set_overlap(all_bird_genes,
                                                       length(obs_genes),
                                                       VMT_WGCNA_Blue_set))
-VMT_WGCNA_Brown_random_overlaps <- replicate(10000,
+HYPO_WGCNA_Brown_random_overlaps <- replicate(10000,
                                    random_set_overlap(all_bird_genes,
                                                       length(obs_genes),
-                                                      VMT_WGCNA_Brown_set))
+                                                      HYPO_WGCNA_Brown_set))
 pooled_random_overlaps <- replicate(10000,
                                    random_set_overlap(all_bird_genes,
                                                       length(obs_genes),
@@ -122,7 +122,7 @@ HYPO_WGCNA_Green_obs_overlap <- gene_set_overlap(obs_genes, HYPO_WGCNA_Green_set
 VMT_Day0_DEG_obs_overlap <- gene_set_overlap(obs_genes, VMT_Day0_DEG_set)
 VMT_Day2_DEG_obs_overlap <- gene_set_overlap(obs_genes, VMT_Day2_DEG_set)
 VMT_WGCNA_Blue_obs_overlap <- gene_set_overlap(obs_genes, VMT_WGCNA_Blue_set)
-VMT_WGCNA_Brown_obs_overlap <- gene_set_overlap(obs_genes, VMT_WGCNA_Brown_set)
+HYPO_WGCNA_Brown_obs_overlap <- gene_set_overlap(obs_genes, HYPO_WGCNA_Brown_set)
 pooled_obs_overlap <- gene_set_overlap(obs_genes, pooled_set)
 
 #Plot results 
@@ -130,22 +130,22 @@ pooled_obs_overlap <- gene_set_overlap(obs_genes, pooled_set)
 overlaps <- c(HYPO_Day0_DEG_random_overlaps, HYPO_Day2_DEG_random_overlaps,
               HYPO_WGCNA_Green_random_overlaps, VMT_Day0_DEG_random_overlaps,
               VMT_Day2_DEG_random_overlaps, VMT_WGCNA_Blue_random_overlaps,
-              VMT_WGCNA_Brown_random_overlaps, pooled_random_overlaps)
+              HYPO_WGCNA_Brown_random_overlaps, pooled_random_overlaps)
 
 datasets <- rep(c("HYPO_Day0_DEG", "HYPO_Day2_DEG", "HYPO_WGCNA_Green",
                   "VMT_Day0_DEG", "VMT_Day2_DEG", "VMT_WGNCA_Blue",
-                  "VMT_WGCNA_Brown", "pooled"), each = 10000)
+                  "HYPO_WGCNA_Brown", "pooled"), each = 10000)
 
 random_df <- as.data.frame(cbind(as.numeric(overlaps), datasets))
 
 observed <- c(HYPO_Day0_DEG_obs_overlap, HYPO_Day2_DEG_obs_overlap,
               HYPO_WGCNA_Green_obs_overlap, VMT_Day0_DEG_obs_overlap,
               VMT_Day2_DEG_obs_overlap, VMT_WGCNA_Blue_obs_overlap,
-              VMT_WGCNA_Brown_obs_overlap, pooled_obs_overlap)
+              HYPO_WGCNA_Brown_obs_overlap, pooled_obs_overlap)
 
 obs_dataset <- c("HYPO_Day0_DEG", "HYPO_Day2_DEG", "HYPO_WGCNA_Green",
                  "VMT_Day0_DEG", "VMT_Day2_DEG", "VMT_WGNCA_Blue",
-                 "VMT_WGCNA_Brown", "pooled")
+                 "HYPO_WGCNA_Brown", "pooled")
 
 obs_df <- as.data.frame(cbind(as.numeric(observed), datasets = obs_dataset))
 
@@ -156,7 +156,7 @@ enrichment_plot <- ggplot() +
   geom_vline(data = obs_df, mapping = aes(xintercept = observed),
              linetype = "dashed", size = 1) + 
   facet_wrap(~datasets, scales = "free") + 
-  theme_bw(base_size = 20)
+  theme_bw(base_size = 16)
 
 enrichment_plot
 
@@ -192,12 +192,37 @@ VMT_Day2_DEG_pval <- get_enrichment_pval(VMT_Day2_DEG_obs_overlap,
                                          VMT_Day2_DEG_random_overlaps)
 VMT_WGCNA_Blue_pval <- get_enrichment_pval(VMT_WGCNA_Blue_obs_overlap,
                                          VMT_WGCNA_Blue_random_overlaps)
-VMT_WGCNA_Brown_pval <- get_enrichment_pval(VMT_WGCNA_Brown_obs_overlap,
-                                           VMT_WGCNA_Brown_random_overlaps)
+HYPO_WGCNA_Brown_pval <- get_enrichment_pval(HYPO_WGCNA_Brown_obs_overlap,
+                                           HYPO_WGCNA_Brown_random_overlaps)
 pooled_pval <- get_enrichment_pval(pooled_obs_overlap,
                                    pooled_random_overlaps)
 
 
+obs_overlaps <- c(HYPO_Day0_DEG_obs_overlap, HYPO_Day2_DEG_obs_overlap,
+                 HYPO_WGCNA_Green_obs_overlap, VMT_Day0_DEG_obs_overlap, 
+                 VMT_Day2_DEG_obs_overlap, VMT_WGCNA_Blue_obs_overlap,
+                 HYPO_WGCNA_Brown_obs_overlap, pooled_obs_overlap)
 
+randomized_overlaps <- c(mean(HYPO_Day0_DEG_random_overlaps),
+                         mean(HYPO_Day2_DEG_random_overlaps),
+                         mean(HYPO_WGCNA_Green_random_overlaps),
+                         mean(VMT_Day0_DEG_random_overlaps),
+                         mean(VMT_Day2_DEG_random_overlaps),
+                         mean(VMT_WGCNA_Blue_random_overlaps),
+                         mean(HYPO_WGCNA_Brown_random_overlaps),
+                         mean(pooled_random_overlaps))
+
+pvals <- c(HYPO_Day0_DEG_pval, HYPO_Day2_DEG_pval,
+           HYPO_WGCNA_Green_pval, VMT_Day0_DEG_pval, 
+           VMT_Day2_DEG_pval, VMT_WGCNA_Blue_pval,
+           HYPO_WGCNA_Brown_pval, pooled_pval)
+
+dataset <- c("HYPO_Day_DEG", "HYPO_Day2_DEG", "HYPO_WGCNA_Green",
+             "VMT_Day0_DEG", "VMT_Day2_DEG", "VMT_WGCNA_Blue",
+             "HYPO_WGCNA_Brown", "pooled")
+
+results <- cbind(dataset, obs_overlaps, randomized_overlaps, pvals)
+
+#write.csv(results, "bentz_gene_permutation_3levels_results.csv")
 
 
