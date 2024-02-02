@@ -26,5 +26,5 @@ print(doc, target = "DEGs_vs_Divergence.plot.pptx")
 
 # correlate divergence with gene expression
 cor.test(DEGs_vs_Divergence$Phylogeny.Divergence, DEGs_vs_Divergence$DEGs, method = "pearson") 
-#t = 2.5681, df = 3, p-value = 0.08263, cor = 0.8290565 
+#t = 1.7378, df = 3, p-value = 0.1806, r2 = 0.7082826
 
