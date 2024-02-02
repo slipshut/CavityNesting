@@ -7,7 +7,7 @@ library(ggplot2)
 library(ggrepel)
 
 # read in data
-DEGs_vs_Divergence <-read.csv("~/Dropbox/Rosvall_Postdoc/Cavity Nesting/Cavity transcriptomics/Divergence_DEGs.csv")
+DEGs_vs_Divergence <-read.csv("~/Dropbox/Rosvall_Postdoc/Cavity Nesting/Cavity transcriptomics/Divergence_DEGs_logfoldchange0.5.csv")
 
 # plot
 ggplot(DEGs_vs_Divergence, aes(x=Phylogeny.Divergence,y=DEGs)) + geom_point() + geom_text_repel(aes(label = Family))
