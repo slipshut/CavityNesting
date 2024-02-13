@@ -74,10 +74,15 @@ anova(Time.Point.T.lmer)
 #Time.Point:Sex  0.269   0.135     2 187.16   1.1420 0.3214   
 
 Immediate <- subset(ten.species, Time.Point == "Immediate")
+
 cor.test(Immediate$logTestosterone, Immediate$Latency.Sample, method = "pearson") 
 #t = 0.20486, df = 45, p-value = 0.8386, cor = 0.03052403 
 
-
+T.time <- ggscatter(Immediate, x = "Latency.Sample", y = "logTestosterone", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          ylab = "log Testosterone", xlab = "latency to sample")
+T.time
 
 #########################################################################################################################################
 
