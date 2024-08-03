@@ -1,7 +1,7 @@
 # CavityNesting_Analysis
 
 Analysis scripts for Lipshutz, Hibbins, et al. 2023. A brief description of the purpose 
-of each script is outlined here. 
+of each script is outlined here. Scripts were run in Python v3 and R v4.
 
 ## Behavior_Testosterone
 
