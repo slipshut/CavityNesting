@@ -294,6 +294,7 @@ Sparrow.Attack.lm <- lm(Distance..raw.epochs. ~ Species + Sex, data = Sparrows)
 anova(Sparrow.Attack.lm)
 
 
+#########################################################################################
 ## Cavity vs facultative for HOSP and CARW
 ten.species <- read.csv("~/Dropbox/Rosvall_Postdoc/Cavity Nesting/Analyses/Cavity.Agg.Collect.Allyears.csv", header = TRUE)
 
@@ -303,16 +304,41 @@ ggboxplot(CARW, x = "Nest.Type.Ind", y = "Attack.Rate", color = "Sex", add = "ji
 CARW.facultative.Attack.lm <- lm(Attack.Rate ~ Nest.Type.Ind + Sex + Nest.Type.Ind:Sex, data = CARW)
 anova(CARW.facultative.Attack.lm)
 # Response: Attack.Rate
-# Df  Sum Sq Mean Sq F value   Pr(>F)   
+#                   Df  Sum Sq Mean Sq F value   Pr(>F)   
 # Nest.Type.Ind      1 0.00003 0.00003  0.0006 0.981227   
 # Sex                1 0.46394 0.46394  7.9269 0.008154 **
-#   Nest.Type.Ind:Sex  1 0.00457 0.00457  0.0780 0.781760   
+# Nest.Type.Ind:Sex  1 0.00457 0.00457  0.0780 0.781760   
 # Residuals         33 1.93139 0.05853                    
 
 ggboxplot(CARW, x = "Nest.Type.Ind", y = "Distance..raw.epochs.", color = "Sex", add = "jitter")
 CARW.facultative.Distance.lm <- lm(Distance..raw.epochs. ~ Nest.Type.Ind + Sex + Nest.Type.Ind:Sex, data = CARW)
 anova(CARW.facultative.Distance.lm)
+#Response: Distance..raw.epochs.
+#                   Df  Sum Sq Mean Sq F value Pr(>F)
+# Nest.Type.Ind      1   55.89  55.891  1.7797 0.1913
+# Sex                1    9.51   9.505  0.3027 0.5859
+# Nest.Type.Ind:Sex  1   24.96  24.955  0.7946 0.3792
+# Residuals         33 1036.34  31.404  
 
+ggboxplot(CARW, x = "Nest.Type.Ind", y = "Testosterone", color = "Sex", add = "jitter")
+CARW.facultative.testosterone.lm <- lm(Testosterone ~ Nest.Type.Ind + Sex + Nest.Type.Ind:Sex, data = CARW)
+anova(CARW.facultative.testosterone.lm)
+#Response: Testosterone
+#                   Df Sum Sq Mean Sq F value    Pr(>F)    
+# Nest.Type.Ind      1  0.105   0.105  0.2314  0.640837    
+# Sex                1 34.788  34.788 76.9525 5.207e-06 ***
+# Nest.Type.Ind:Sex  1  6.910   6.910 15.2859  0.002915 ** 
+# Residuals         10  4.521   0.452 
+
+ggboxplot(CARW, x = "Nest.Type.Ind", y = "Tan4.eigengene", color = "Sex", add = "jitter")
+CARW.facultative.tan4.lm <- lm(Tan4.eigengene ~ Nest.Type.Ind + Sex + Nest.Type.Ind:Sex, data = CARW)
+anova(CARW.facultative.tan4.lm)
+# Response: Tan4.eigengene
+#                   Df     Sum Sq    Mean Sq F value Pr(>F)
+# Nest.Type.Ind      1 0.00000275 0.00000275  0.0149 0.9059
+# Sex                1 0.00006687 0.00006687  0.3619 0.5641
+# Nest.Type.Ind:Sex  1 0.00059971 0.00059971  3.2453 0.1093
+# Residuals          8 0.00147832 0.00018479  
 
 HOSP <- subset(ten.species, Species == "House Sparrow")
 
@@ -320,7 +346,7 @@ ggboxplot(HOSP, x = "Nest.Type.Ind", y = "Attack.Rate", color = "Sex", add = "ji
 HOSP.facultative.Attack.lm <- lm(Attack.Rate ~ Nest.Type.Ind + Sex + Nest.Type.Ind:Sex, data = HOSP)
 anova(HOSP.facultative.Attack.lm)
 # Response: Attack.Rate
-# Df   Sum Sq   Mean Sq F value Pr(>F)
+#                  Df   Sum Sq   Mean Sq F value Pr(>F)
 # Nest.Type.Ind      1 0.004762 0.0047623  0.6158 0.4394
 # Sex                1 0.019762 0.0197625  2.5555 0.1216
 # Nest.Type.Ind:Sex  1 0.001762 0.0017618  0.2278 0.6370
@@ -330,5 +356,29 @@ ggboxplot(HOSP, x = "Nest.Type.Ind", y = "Distance..raw.epochs.", color = "Sex",
 HOSP.facultative.Distance.lm <- lm(Distance..raw.epochs. ~ Nest.Type.Ind + Sex + Nest.Type.Ind:Sex, data = HOSP)
 anova(HOSP.facultative.Distance.lm)
 
+#Response: Distance..raw.epochs.
+#                   Df Sum Sq Mean Sq F value   Pr(>F)   
+# Nest.Type.Ind      1   0.97   0.968  0.0733 0.788679   
+# Sex                1  23.46  23.455  1.7763 0.193745   
+# Nest.Type.Ind:Sex  1 103.97 103.969  7.8737 0.009192 **
+# Residuals         27 356.52  13.205
 
+ggboxplot(HOSP, x = "Nest.Type.Ind", y = "Testosterone", color = "Sex", add = "jitter")
+HOSP.facultative.testosterone.lm <- lm(Testosterone ~ Nest.Type.Ind + Sex + Nest.Type.Ind:Sex, data = HOSP)
+anova(HOSP.facultative.testosterone.lm)
 
+#Response: Testosterone
+#                   Df  Sum Sq Mean Sq F value    Pr(>F)    
+# Nest.Type.Ind      1   2.702   2.702  0.4466 0.5148180    
+# Sex                1 164.638 164.638 27.2147 0.0001305 ***
+# Nest.Type.Ind:Sex  1   0.486   0.486  0.0803 0.7810394    
+# Residuals         14  84.695   6.050   
+
+ggboxplot(HOSP, x = "Nest.Type.Ind", y = "Tan4.eigengene", color = "Sex", add = "jitter")
+HOSP.facultative.tan4.lm <- lm(Tan4.eigengene ~ Nest.Type.Ind + Sex + Nest.Type.Ind:Sex, data = HOSP)
+anova(HOSP.facultative.tan4.lm)
+#Response: Tan4.eigengene
+#               Df    Sum Sq    Mean Sq F value Pr(>F)
+# Nest.Type.Ind  1 5.130e-06 5.1310e-06  0.0260 0.8756
+# Sex            1 2.515e-04 2.5150e-04  1.2724 0.2885
+# Residuals      9 1.779e-03 1.9766e-04
