@@ -136,113 +136,154 @@ summary(T.F.aov)
 # Residuals   90  9.690  0.1077 
 
 
-# Does aggression correlate with T across species?
+###############################################################################################
+
+# Does attack rate correlate with T across species?
 ggplot(ten.species, aes(x=logTestosterone, y=Attack.Rate, col=Species, shape = Sex)) + ylim(0,1) + 
   geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
                                             panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
 
 cor.test(ten.species$logTestosterone,ten.species$Attack.Rate)
-#t = 2.1098, df = 62, p-value = 0.03892, cor = 0.2588183
+#t = 2.1098, df = 62, p-value = 0.03892, r = 0.2588183 
 
 cor.test(F.agg$logTestosterone,F.agg$Attack.Rate) 
-# t = 1.873, df = 25, p-value = 0.07281, cor = 0.3507881  
+#t = 1.873, df = 25, p-value = 0.07281, r = 0.3507881 
 
 cor.test(M.agg$logTestosterone,M.agg$Attack.Rate)
-# t = 1.1701, df = 35, p-value = 0.2499, cor = 0.1940174 
+#t = 1.1701, df = 35, p-value = 0.2499, r = 0.1940174 
 
+# Does distance correlate with T across species?
 
-# Do songs correlate with T across species?
-ggplot(ten.species, aes(x=logTestosterone, y=Songs, col=Species, shape = Sex)) + 
-  geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+ggplot(ten.species, aes(x=logTestosterone, y=Distance..raw.epochs., col=Species, shape = Sex))  + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
                                             panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
 
-cor.test(ten.species$logTestosterone,ten.species$Songs) 
-#t = 2.61, df = 62, p-value = 0.01134, r = 0.3146373
+cor.test(ten.species$logTestosterone,ten.species$Distance..raw.epochs.)
+# t = 0.049391, df = 63, p-value = 0.9608, r = 0.006222525 
 
-cor.test(F.agg$logTestosterone,F.agg$Songs) 
-# t = 0.6117, df = 25, p-value = 0.5463; r = 0.1214348 
+cor.test(F.agg$logTestosterone,F.agg$Distance..raw.epochs.) 
+# t = 0.12999, df = 25, p-value = 0.8976, r = 0.02599015 
 
-cor.test(M.agg$logTestosterone,M.agg$Songs) 
-# t = -0.55445, df = 35, p-value = 0.5828; r = -0.09331084 
+cor.test(M.agg$logTestosterone,M.agg$Distance..raw.epochs.)
+# t = -1.5146, df = 36, p-value = 0.1386, r = -0.244749 
 
 
-# # Do flyovers correlate with T across species?
-ggplot(ten.species, aes(x=logTestosterone, y=Flyovers, col=Species, shape = Sex)) + 
-  geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+# Looking into each species separately
+
+# Tree swallow
+TRES <-subset(ten.species, Species == "Tree Swallow")
+ggplot(TRES, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
                                             panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+cor.test(TRES$logTestosterone,TRES$Attack.Rate, method = 'spearman') 
+#S = 420.37, p-value = 0.1233, rho = -0.4698253 
+
+TRES.M <-subset(TRES, Sex == "M")
+cor.test(TRES.M$logTestosterone,TRES.M$Attack.Rate, method = 'spearman') 
+#S = 27.071, p-value = 0.5594, rho = -0.3535534
+
+TRES.F <-subset(TRES, Sex == "F")
+cor.test(TRES.F$logTestosterone,TRES.F$Attack.Rate, method = 'spearman') 
+#S = 2, p-value = 0.002778, rho = 0.9642857 
+
+# Barn swallow
+BARS <-subset(ten.species, Species == "Barn Swallow")
+ggplot(BARS, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+                                                                                                           panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+cor.test(BARS$logTestosterone,BARS$Attack.Rate, method = 'spearman') 
+# Not enough observations
+
+# Eastern Bluebird
+EABL <-subset(ten.species, Species == "Eastern Bluebird")
+ggplot(EABL, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+                                                                                                           panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+cor.test(EABL$logTestosterone,EABL$Attack.Rate, method = 'spearman') 
+#S = 23.312, p-value = 0.5177, rho = 0.3339472 
+
+EABL.M <-subset(EABL, Sex == "M")
+cor.test(EABL.M$logTestosterone,EABL.M$Attack.Rate, method = 'spearman') 
+#S = 6.8377, p-value = 0.6838, rho = 0.3162278 
+
+EABL.F <-subset(EABL, Sex == "F")
+cor.test(EABL.F$logTestosterone,EABL.F$Attack.Rate, method = 'spearman') 
+#S = 2.2204e-16, p-value = 1, rho = 1
+
+# American Robin
+AMRO <-subset(ten.species, Species == "American Robin")
+ggplot(AMRO, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+                                                                                                           panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+cor.test(AMRO$logTestosterone,AMRO$Attack.Rate, method = 'spearman') 
+#Not enough data
+
+
+# House Sparrow
+HOSP <-subset(ten.species, Species == "House Sparrow")
+ggplot(HOSP, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+                                                                                                           panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+cor.test(EABL$logTestosterone,HOSP$Attack.Rate, method = 'spearman') 
+# Not enough data
+
+# Eurasian Tree Sparrow
+EUTS <-subset(ten.species, Species == "Eurasian Tree Sparrow")
+ggplot(EUTS, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+                                                                                                           panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+cor.test(EABL$logTestosterone,EABL$Attack.Rate, method = 'spearman') 
+# Not enough data
 
 # House wrens
 HOWR <-subset(ten.species, Species == "House Wren")
+ggplot(HOWR, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+                                                                                                           panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+cor.test(HOWR$logTestosterone,HOWR$Attack.Rate, method = 'spearman') 
+#S = 378.1, p-value = 0.9, rho = -0.03872845 
+
 HOWR.M <-subset(HOWR, Sex == "M")
+cor.test(HOWR.M$logTestosterone,HOWR.M$Attack.Rate, method = 'spearman') 
+#S = 158.16, p-value = 0.4043, rho = -0.3179944
 
-ggplot(HOWR, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + 
-  geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
-                                            panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
-cor.test(HOWR.M$logTestosterone,HOWR.M$Attack.Rate) 
-#t = -0.50158, df = 7, p-value = 0.6313
-
-
-ggplot(HOWR, aes(x=logTestosterone, y=Songs, col = Sex)) + 
-  geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
-                                            panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
-cor.test(HOWR.M$logTestosterone,HOWR.M$Songs) 
-#t = 0.65673, df = 7, p-value = 0.5323, cor = 0.24
+HOWR.F <-subset(HOWR, Sex == "F")
+cor.test(HOWR.F$logTestosterone,HOWR.F$Attack.Rate, method = 'spearman') 
+#S = 16, p-value = 0.4167, rho = -0.6 
 
 # Carolina wren
 CARW <-subset(ten.species, Species == "Carolina Wren")
+ggplot(HOWR, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+                                                                                                           panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+cor.test(CARW$logTestosterone,CARW$Attack.Rate, method = 'spearman') 
+#S = 71.588, p-value = 0.02279, rho = 0.6746011 
+
 CARW.M <-subset(CARW, Sex == "M")
+cor.test(CARW.M$logTestosterone,CARW.M$Attack.Rate, method = 'spearman') 
+#S = 22, p-value = 0.1667, rho = 0.6071429 
 
-ggplot(CARW, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + 
-  geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
-                                            panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
-cor.test(CARW.M$logTestosterone,CARW.M$Attack.Rate) 
-#t = 1.0703, df = 5, p-value = 0.3334; r = 0.4317267
+CARW.F <-subset(CARW, Sex == "F")
+cor.test(CARW.F$logTestosterone,CARW.F$Attack.Rate, method = 'spearman') 
+#S = 2.254, p-value = 0.2254, rho = 0.7745967 
 
+# Prothonotary Warbler
+PROW <-subset(ten.species, Species == "Prothonotary Warbler")
+ggplot(PROW, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+                                                                                                           panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+cor.test(PROW$logTestosterone,PROW$Attack.Rate, method = 'spearman') 
+#S = 92, p-value = 0.5517, rho = 0.2333333 
 
-ggplot(CARW, aes(x=logTestosterone, y=Songs, col = Sex)) + 
-  geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
-                                            panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
-cor.test(CARW.M$logTestosterone,CARW.M$Songs) 
-#t = 0.69029, df = 5, p-value = 0.5207, cor = 0.2949701
+PROW.M <-subset(PROW, Sex == "M")
+cor.test(PROW.M$logTestosterone,PROW.M$Attack.Rate, method = 'spearman') 
+#S = 18, p-value = 0.95, rho = 0.1 
 
+PROW.F <-subset(PROW, Sex == "F")
+cor.test(PROW.F$logTestosterone,PROW.F$Attack.Rate, method = 'spearman') 
+#S = 14, p-value = 0.75, rho = -0.4
 
-# Sparrows
-Sparrows <-subset(ten.species, Family == "Passeridae")
+# Yellow Warbler
+YEWA <-subset(ten.species, Species == "Yellow Warbler")
+ggplot(YEWA, aes(x=logTestosterone, y=Attack.Rate, col = Sex)) + geom_point(size = 4) + theme_bw() + theme(panel.border = element_blank(), 
+                                                                                                           panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+cor.test(YEWA$logTestosterone,YEWA$Attack.Rate, method = 'spearman') 
+#S = 63.88, p-value = 0.5678, rho = 0.2395253 
 
-f.passeridae <- subset(ten.species, Family =="Passeridae" & Sex == "F")
-m.passeridae <- subset(ten.species, Family =="Passeridae" & Sex == "M")
+YEWA.M <-subset(YEWA, Sex == "M")
+cor.test(YEWA.M$logTestosterone,YEWA.M$Attack.Rate, method = 'spearman') 
+#S = 36, p-value = 0.1333, rho = -0.8 
 
-
-ggboxplot(Sparrows, x = "Species", y = "logTestosterone", color = "Sex", add = "jitter")
-Sparrow.T.lm <- lm(logTestosterone ~ Species*Sex, data = Sparrows)
-anova(Sparrow.T.lm)
-#              Df  Sum Sq Mean Sq  F value   Pr(>F)    
-# Species      1  0.0227  0.0227   0.3494    0.559    
-# Sex          1 14.4361 14.4361 221.7584 4.05e-15 ***
-# Species:Sex  1  0.0169  0.0169   0.2600    0.614    
-# Residuals   29  1.8878  0.0651  
-
-
-HOSP <- subset(ten.species, Species == "House Sparrow")
-
-ggboxplot(HOSP, x = "Nest.Type.Ind", y = "logTestosterone", color = "Sex", add = "jitter")
-HOSP.facultative.T.lm <- lm(logTestosterone ~ Nest.Type.Ind + Sex + Nest.Type.Ind:Sex, data = HOSP)
-anova(HOSP.facultative.T.lm)
-#                  Df Sum Sq Mean Sq  F value    Pr(>F)    
-# Nest.Type.Ind      2 0.6536  0.3268   5.4326   0.01928 *  
-# Sex                1 7.7393  7.7393 128.6624 4.094e-08 ***
-# Nest.Type.Ind:Sex  1 0.0042  0.0042   0.0702   0.79522    
-# Residuals         13 0.7820  0.0602  
-
-# Wrens
-CARW <- subset(ten.species, Species == "Carolina Wren")
-
-ggboxplot(CARW, x = "Nest.Type.Ind", y = "logTestosterone", color = "Sex", add = "jitter")
-CARW.facultative.T.lm <- lm(logTestosterone ~ Nest.Type.Ind + Sex + Nest.Type.Ind:Sex, data = CARW)
-anova(CARW.facultative.T.lm)
-# Df  Sum Sq Mean Sq F value    Pr(>F)    
-# Nest.Type.Ind      1 0.17906 0.17906  5.3261   0.04367 *  
-# Sex                1 2.86657 2.86657 85.2641 3.284e-06 ***
-# Nest.Type.Ind:Sex  1 0.12675 0.12675  3.7700   0.08086 .  
-# Residuals         10 0.33620 0.03362  
-
+YEWA.F <-subset(YEWA, Sex == "F")
+cor.test(YEWA.F$logTestosterone,YEWA.F$Attack.Rate, method = 'spearman') 
+#S = 2, p-value = 1, rho = 0.5
