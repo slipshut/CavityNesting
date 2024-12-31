@@ -8,7 +8,7 @@ of each script is outlined here. Scripts were run in Python v3 and R v4.
 **CN_behavior_analyses.R** - Examines and visuzalizes attack rate and distance from mount by 
 nest strategy and sex, from simulated territorial intrusions.
 
-**CN_testosterone_analyses.R** - Examines and visuzalizes plasma testosterone levels by 
+**CN_testosterone_analyses.R** - Examines and visualizes plasma testosterone levels by 
 nest strategy and sex, from enzyme immunoassay.
 
 **Cavity.Agg.Collect.Allyears.csv** - Input file for behavior and testosterone analyses
